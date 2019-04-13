@@ -1,0 +1,30 @@
+{
+  "name": "webpage-recorder",
+  "version": "1.0.0",
+  "description": "Record a webpage as video/audio file",
+  "main": "dist/recorder.js",
+  "types": "dist/recorder.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "webpage",
+    "recorder",
+    "webpage video",
+    "website video",
+    "webpage audio",
+    "website audio",
+    "puppeteer"
+  ],
+  "author": "Arjun G",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.14.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.81",
+    "@types/dom-mediacapture-record": "^1.0.1",
+    "@types/puppeteer": "^1.12.3"
+  }
+}
