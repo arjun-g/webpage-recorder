@@ -39,11 +39,7 @@ export class Recorder {
 
         await (await this.browser.pages())[0].goto('about:blank');
 
-        let targets = await this.browser.targets();
-
-        let target = targets.find(target => {
-            return target['_targetInfo'].title === 'Webpage Recorder Extension';
-        });
+        let target = await this.browser.waitForTarget(target => target.url().startsWith('chrome-extension'));
 
         this.extensionId = target.url().match('chrome-extension\:\/\/([a-zA-Z0-9]*)\/_generated_background_page.html')[1];
         
@@ -51,7 +47,6 @@ export class Recorder {
 
         launchOptions = {
             headless: false,
-            defaultViewport: null,
             args: [
                 '--enable-usermedia-screen-capturing',
                 '--allow-http-screen-capture',
